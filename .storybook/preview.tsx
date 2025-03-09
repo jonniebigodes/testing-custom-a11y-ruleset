@@ -27,6 +27,20 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 
 const preview: Preview = {
   parameters: {
+    a11y: {
+      /* config: {
+        rules: enabledRules,
+      }, */
+      options: {
+        // Using the runOnly option to specify WCAG 2.0 Level A rules
+        runOnly: {
+          type: 'tag',
+          values: ['wcag2aaa'],
+        },
+        // Display more detailed rule information in results
+        reporter: 'v2',
+      },
+    },
     viewport: {
       viewports: {
         ...breakpointViewports,
@@ -69,6 +83,6 @@ const preview: Preview = {
 
   decorators: globalDecorators,
   loaders: [mswLoader],
-  tags: ['autodocs']
+  tags: ['autodocs'],
 }
 export default preview
