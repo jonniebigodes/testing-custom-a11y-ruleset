@@ -35,7 +35,7 @@ const preview: Preview = {
         // Using the runOnly option to specify WCAG 2.0 Level A rules
         runOnly: {
           type: 'tag',
-          values: ['wcag2a'],
+          values: ['wcag2aaa'],
         },
         // Display more detailed rule information in results
         reporter: 'v2',
