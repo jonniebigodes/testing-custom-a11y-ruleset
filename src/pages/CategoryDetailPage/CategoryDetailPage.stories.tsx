@@ -13,6 +13,14 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     deeplink: { route: '/categories/burgers', path: '/categories/:id' },
+    a11y: {
+      options: {
+        runOnly: {
+          type: 'tag',
+          values: ['experimental'],
+        },
+      },
+    },
   },
   decorators: [withDeeplink],
 } satisfies Meta<typeof CategoryDetailPage>
@@ -24,6 +32,15 @@ export const Default: Story = {
   parameters: {
     msw: {
       handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
+    },
+    a11y: {
+      options: {
+        runOnly: {
+          type: 'tag',
+          // values: ['wcag2aaa'],
+          values: ['best-practice'],
+        },
+      },
     },
   },
 }
@@ -46,5 +63,13 @@ export const Missing: Story = {
     msw: {
       handlers: [http.get(BASE_URL, () => HttpResponse.json([]))],
     },
+    /* a11y: {
+      options: {
+        runOnly: {
+          type: 'tag',
+          values: ['experimental'],
+        },
+      },
+    }, */
   },
 }
